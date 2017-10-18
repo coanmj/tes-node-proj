@@ -146,6 +146,7 @@ display:inline-block;
 	background-image: url(../images/header.jpg);
 	height: 100vh;
 	position: relative;
+	background-size: cover;
 }
 .intro-box{
 	height: 100vh;
@@ -321,6 +322,13 @@ hr {
 	margin: 0;
 	color: white;
 }
+
+.practice .img-responsive
+{
+    width: 200x;
+    height: 200px;
+}
+
 
 /**********************
 		portallinks
