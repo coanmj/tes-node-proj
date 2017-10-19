@@ -41,10 +41,22 @@
                                 </div>
         <div class="row">
                <div class="col-sm-3"></div><div class="col-sm-6">
- <nav>
+ <nav class="navbar-default">
           <ul class="nav nav-pills">
 
             {{#if user}}
+            	<li class="nav-item">
+	              <a class="nav-link" href="/">Dashboard</a>
+	            </li>
+	            <li class="nav-item">
+	              <a class="nav-link" href="#notifications">Notifications</a>
+	            </li>
+	            <li class="nav-item">
+	              <a class="nav-link" href="#quicklinks">Quicklinks</a>
+	            </li>
+	            <li class="nav-item">
+	              <a class="nav-link" href="#references">References</a>
+	            </li>
 	            <li class="nav-item">
 	              <a class="nav-link" href="/">Account Information</a>
 	            </li>
@@ -73,7 +85,7 @@
 
              <!-- Header Section -->
 
-              <section id="team" class="notifications">
+              <section id="notifications" class="notifications">
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-12">
@@ -88,21 +100,24 @@
 				</div>
             </section>
 
-            <section id="services" class="portallinks">
+            <section id="quicklinks" class="portallinks">
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-12">
                             <div class="title-box">
-                                <h2 class="section-title">LeapFile Access Link</h2>
+                                <h2 class="section-title">Quicklinks</h2>
                             </div>
                             <a href="http://azhth.leapfile.net">LeapFile Client Access</a>
-                            <p>If you need assistance with LeapFile, please see the client instructions in the Reference section below.</p>
+                            <p>If you need assistance with LeapFile then please see the LeapFile client instructions in the Reference section below<br /><br /></p>
+
+                            <a href="https://www.clientaxcess.com">Portal Access</a>
+                            <p>If you need assistance with the Axcess portal then please see the Axcess User Guide in the Reference section below</p>
                         </div>
                     </div>
                 </div>
             </section>
 
-               <section id="choose" class="choose overlay-light">
+               <section id="references" class="choose overlay-light">
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-12">
@@ -116,18 +131,18 @@
                     	<div class="col-sm-2"></div>
                         <div class="col-sm-4">
                             <div class="choose-box">
-                                <span class="choose-icon ion-ios-paper-outline"></span>
+                                <a href="/docs/Client_Leapfile_Instructions.pdf"><span class="choose-icon ion-ios-paper-outline"></span></a>
                                 <h3 class="choose-title">LeapFile</h3>
                                 <p class="choose-detail">
-									Instructions for accessing LeapFile.
+									Instructions for accessing LeapFile
                                 </p>
                                 <a href="/docs/Client_Leapfile_Instructions.pdf">LeapFile Instructions Document<span class="sr-only">(current)</span></a></li>
                             </div>
                         </div>
                         <div class="col-sm-4">
                             <div class="choose-box">
-                                <span class="choose-icon ion-ios-paper"></span>
-                                <h3 class="choose-title">Client Info Document</h3>
+                                <a href="/docs/CCH_Guide.pdf"><span class="choose-icon ion-ios-paper"></span></a>
+                                <h3 class="choose-title">Portal</h3>
                                 <p class="choose-detail">
                                     CCH Axcess Portal End User Training Guide
                                 </p>
