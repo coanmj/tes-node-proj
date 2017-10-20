@@ -93,7 +93,7 @@ section{
 .navbar-toggle{
 	border-radius: 0;
 }
-@media (min-width: 768px){
+@media (min-width: 1000px){
 	.navbar-brand img{
 		width: 110px;
 	}
@@ -117,7 +117,7 @@ white-space: nowrap;
 list-style:none;
 }
 }
-@media (max-width: 767px){
+@media (max-width: 1000px){
 .navbar-brand img{
 	height: 20px;
 }
@@ -199,7 +199,7 @@ hr {
 	left: calc(50% - 89px);
 	border-radius: 0;
 }
-@media (max-width: 991px){
+@media (max-width: 1000px){
 	.btn-header{
 		bottom: 30px;
 	}
@@ -451,7 +451,6 @@ text-align: center;
 
 .pagelink p{
 	text-align: center;
-	text-decoration: underline;
 	font-weight: bold;
 	font-size: 2.0em;
 }
@@ -512,7 +511,7 @@ text-shadow: 0 0 2px #999;
 	opacity: 0.5;
 	transition: all 0.4s ease-in-out;
 }
-@media (min-width: 768px){
+@media (min-width: 1000px){
 	.client-box img{
 		padding: 50px 0;
 	}
@@ -677,7 +676,7 @@ text-shadow: 0 0 2px #999;
   /*color: #969595; */
   margin: 8px;
 }
-@media (min-width: 768px){
+@media (min-width: 1000px){
 	.footer .footer-social{
 		float: right;
 	}
@@ -688,7 +687,7 @@ overflow:hidden;height:300px;width:600px;
 overflow:hidden;height:300px;width:600px;
 }
 }
-@media (max-width: 767px){
+@media (max-width: 1000px){
 	footer, .subscribe{
 		text-align: center;
 		
@@ -710,7 +709,7 @@ overflow:hidden;height:300px;width:300px;
 
 .button-link {
 	padding: 10px 15px;
-	background: #4479BA;
+	background: #31436b;
 	color: #FFF;
 	-webkit-border-radius: 4px;
 	-moz-border-radius: 4px;
@@ -744,3 +743,9 @@ overflow:hidden;height:300px;width:300px;
 .nav-item a{
 	color:#FFF;
 }
+
+.navbar-default .custom a:hover {
+		background-color:#1E2942;
+	}
+
+/* 1E2942 */
