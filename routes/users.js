@@ -29,6 +29,11 @@ router.get('/team', function(req, res) {
 	res.render('team');
 });
 
+// Contact
+router.get('/contact', function(req, res) {
+	res.render('contact');
+});
+
 // Individual Team Members
 router.get('/davehopkins', function(req, res) {
 	res.render('davehopkins');
@@ -125,44 +130,44 @@ router.get('/logout', function(req, res){
 
 router.post('/formemail', function (req, res) {
 
-	// Generate test SMTP service account from ethereal.email
-// Only needed if you don't have a real mail account for testing
+	var name = req.body.name;
+	var email = req.body.email;
+	var message = req.body.message;
 
 nodemailer.createTestAccount((err, account) => {
 
     // create reusable transporter object using the default SMTP transport
     let transporter = nodemailer.createTransport({
-        host: 'smtp.ethereal.email',
-        port: 587,
-        secure: false, // true for 465, false for other ports
+    	service: "gmail",
+        host: "smtp.gmail.com",
         auth: {
-            user: account.user, // generated ethereal user
-            pass: account.pass  // generated ethereal password
+            user: "", // provide in running env
+            pass: ""  // provide in running env
         }
     });
 
     // setup email data with unicode symbols
     let mailOptions = {
-        from: '"Fred Foo 👻" <foo@blurdybloop.com>', // sender address
-        to: 'mike.coan101@gmail.com', // list of receivers
-        subject: 'Hello ✔', // Subject line
-        text: 'Hello world?', // plain text body
-        html: '<b>Hello world?</b>' // html body
+        from: 'HTH Arizona Website Mailer <azhthsvc@gmail.com>', // sender address
+        to: '', // list of receivers
+        subject: 'New Contact Form Message from HTH Website - ' + name, // Subject line
+        text: 'From: ' + name + 'E-mail:' + email + 'Message:' + message, // plain text body
+        html: '<b>From: </b>' + name + '<br /><b>E-mail: </b>' + email + '<br /><br /><b>Message: </b>'  + message// html body
     };
 
  transporter.sendMail(mailOptions, (error, info) => {
-        if (error) {
-            return console.log(error);
+    if (error) {
         }
         console.log('Message sent: %s', info.messageId);
         // Preview only available when sending through an Ethereal account
         console.log('Preview URL: %s', nodemailer.getTestMessageUrl(info));
+         	req.flash('error_msg', 'Contact form message failed to send. Please call us using the phone number in the contact section');
 
-        // Message sent: <b658f8ca-6296-ccf4-8306-87d57a0b4321@blurdybloop.com>
-        // Preview URL: https://ethereal.email/message/WaQKMgKddxQDoou...
+	res.redirect('contact');
     });
+ 	req.flash('success_msg', 'Contact form message sent! We will contact you back as soon as we can.');
+ 	res.redirect('contact');
 });
-
 });
 
 

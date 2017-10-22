@@ -16,7 +16,7 @@ $( document ).ready(function() {
         items: 1,
     })
 
-    $("#contactForm").submit(function(e){
+    /*$("#contactForm").submit(function(e){
 
         e.preventDefault();
         var $ = jQuery;
