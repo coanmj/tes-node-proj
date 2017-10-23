@@ -450,7 +450,8 @@ text-align: center;
 	word-wrap: break-word;
 }
 .team-box h3{
-	/*font-weight: 700;*/
+	font-weight: 700;
+	font-size: 125%;
 }
 
 .pagelink p{
