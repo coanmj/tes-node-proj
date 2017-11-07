@@ -452,6 +452,7 @@ text-align: center;
 .team-box h3{
 	font-weight: 700;
 	font-size: 125%;
+	text-align: center;
 }
 
 .pagelink p{
@@ -757,3 +758,7 @@ overflow:hidden;height:300px;width:300px;
 .navbar-default .custom a:hover {
 		background-color:#1E2942;
 	}
+
+.individual-team-member {
+	text-align: left;
+}

@@ -39,6 +39,10 @@ router.get('/davehopkins', function(req, res) {
 	res.render('davehopkins');
 });
 
+router.get('/georgehostal', function(req, res) {
+	res.render('georgehostal');
+});
+
 // Register User
 router.post('/register', function(req, res) {
 	var name = req.body.name;
