@@ -29,6 +29,11 @@ router.get('/team', function(req, res) {
 	res.render('team');
 });
 
+// All Industries
+router.get('/industries', function(req, res) {
+	res.render('industries');
+});
+
 // Contact
 router.get('/contact', function(req, res) {
 	res.render('contact');
@@ -41,6 +46,10 @@ router.get('/davehopkins', function(req, res) {
 
 router.get('/georgehostal', function(req, res) {
 	res.render('georgehostal');
+});
+
+router.get('/joetameron', function(req, res) {
+	res.render('joetameron');
 });
 
 // Register User
