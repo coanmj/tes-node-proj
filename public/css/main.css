@@ -473,6 +473,18 @@ text-shadow: 0 0 2px #999;
 
 .pagelink a{ padding: 5px; }
 
+.pagelink input{
+	text-transform: none;
+	}
+
+.pagelink input:hover { text-decoration:none;
+text-shadow: 0 0 2px #999;
+}
+
+.pagelink input:active { padding-top: 2px; }
+
+.pagelink { padding: 5px; }
+
 
 
 /**********************
@@ -770,3 +782,5 @@ overflow:hidden;height:300px;width:300px;
 .individual-team-member {
 	text-align: left;
 }
+
+/*File Upload*/

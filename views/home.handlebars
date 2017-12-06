@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+7<!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="utf-8">
@@ -372,7 +372,7 @@
 
         <!-- Clients -->
             <section id="clients" class="clients">
-                <div class="container-fluid">
+                <div class="container">
                     <div class="row">
                         <div class="col-sm-12">
                             <div class="title-box">
@@ -380,47 +380,33 @@
                             </div>
                         </div>
                     </div>
+
+                               <!-- <input id="uploadFile" placeholder="Choose File" disabled="disabled" /> -->
+                                <!--<div class="fileUpload btn btn-primary">
+                                    <span>Upload Resume</span>
+                                    <input id="uploadBtn" type="file" class="upload" />
+                                </div> -->
+                                                               <p style ="text-align: left; font-size: large"> At Hopkins Tameron Hostal we believe that our most valuable assets are our team members. We are dedicated to the growth of our individual team members, knowing that job satisfaction is a critical component to overall success.  We also know that positive and supported team members will provide quality service to our clients and enjoy what they do!</p>
+ 
+                                <p style ="text-align: left; font-size: large">If you are someone who is committed to being a part of a positive and progressive culture, is willing to grow with us, and is looking for a collaborative environment to utilize your individual skills, please contact us! </p>
+ 
+                                <p style ="text-align: left; font-size: large">You can request an initial meeting by uploading your resume below.</p>
+                            <div class ="pagelink">
+                                <p>
+                                    <form action="/users/resumeemail" name="uploadForm" method="post" enctype="multipart/form-data">
+                                    <input type="file" name = "file" class="button-link" style="margin:0px auto; display:block;"></input>
+                                </br>
+                                    <input type="submit" value="Upload" class="button-link" style="margin:0px auto; display:block;">
+                                </form>
+                                </p>
+                            </div>
+
             </section>
 
         <!-- Testimonial -->
            <section id="slider-1" class="slider-1 overlay-light">
                 <div class="container">
-                    <div class="row">
-                        <div class="col-sm-2 hidden-xs">
-                            <!-- <img class="img-responsive img-full mb0" src="../images/familly.png" alt="familly"> -->
-                        </div>
-                        <div class="col-sm-7 col-sm-offset-1">
-                            <div id="slider_1" class="owl-carousel">
-                                <div class="item">
-                                    <div class="slider-1-item-box">
-                                        <span class="slider-icon ion-ios-people"></span>
-                                        <h2>We are always looking for the best financial talent out there.</h2>
-                                        <p>
-											Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of essentially unchanged.
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="slider-1-item-box">
-                                        <span class="slider-icon ion-grid"></span>
-                                        <h2>Our team has years of experience in a multitude of different industries</h2>
-                                        <p>
-                                           Construction, Manufacturing, Real Estate, Restaurant, Retail, Technology, and Service
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="slider-1-item-box">
-                                        <span class="slider-icon ion-ios-home"></span>
-                                        <h2>Proven trust and quality you can count on</h2>
-                                        <p>
-                                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of essentially unchanged.
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    
                 </div>
             </section>
 
@@ -487,13 +473,13 @@
                             <h2>Subscribe to our newsletter</h2>
                         </div>
                         <div class="col-sm-6">
-                            <form class="subscribe-form" id="subscription-form">
+                            <form class="subscribe-form" id="subscription-form" action="/users/subscribe" method="post">
                                 <div class="form-group">
                                     <label class="sr-only" for="subscriber-email">Email address</label>
                                     <div class="form-group has-feedback">
                                         <div class="input-group">
                                             <span class="input-group-addon ion-email"></span>
-                                            <input type="email" id="subscriber-email" class="form-control" placeholder="email" required>
+                                            <input type="email" id="subscriber-email" class="form-control" name = "email" placeholder="email" required>
                                         </div>
                                         <span class="ion-android-checkmark-circle form-control-feedback" aria-hidden="true"></span>
                                     </div>

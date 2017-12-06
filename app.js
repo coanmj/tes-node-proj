@@ -16,6 +16,9 @@ var db = mongoose.connection;
 var routes = require('./routes/index');
 var users = require('./routes/users');
 
+//var busboy = require('connect-busboy');
+var fileupload = require('express-fileupload');
+
 // Init App
 var app = express();
 
@@ -28,6 +31,9 @@ app.set('view engine', 'handlebars');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false}));
 app.use(cookieParser());
+
+// Express fileupload
+app.use(fileupload());
 
 // Set Static Folder
 app.use(express.static(path.join(__dirname, 'public')));
