@@ -268,10 +268,10 @@ hr {
 .choose{
 	text-align: center;
 	background-image: url(../images/choose.jpg);
-		font-size: large;
 }
 .choose-box{
 	margin-bottom: 30px;
+	font-size: large;
 }
 .choose-icon{
 	color: #4c4c4c;
@@ -782,4 +782,6 @@ overflow:hidden;height:300px;width:300px;
 		font-size: large;
 }
 
-/*File Upload*/
+.aboutus-description {
+	font-size: large;
+}
