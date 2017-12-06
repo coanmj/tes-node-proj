@@ -268,6 +268,7 @@ hr {
 .choose{
 	text-align: center;
 	background-image: url(../images/choose.jpg);
+		font-size: large;
 }
 .choose-box{
 	margin-bottom: 30px;
@@ -282,9 +283,6 @@ hr {
 	letter-spacing: 2px;
 	margin-top: 10px;
 	margin-bottom: 30px;
-}
-.choose-detail{
-
 }
 
 
@@ -781,6 +779,7 @@ overflow:hidden;height:300px;width:300px;
 
 .individual-team-member {
 	text-align: left;
+		font-size: large;
 }
 
 /*File Upload*/
