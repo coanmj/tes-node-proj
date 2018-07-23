@@ -13,7 +13,7 @@
         <link href="assets/css/owl.carousel.css" rel="stylesheet">
         <link href="assets/css/owl.carousel.theme.min.css" rel="stylesheet">
         <link href="assets/css/main.css" rel="stylesheet">
-
+        <script src='https://www.google.com/recaptcha/api.js'></script>
     </head>
     <body data-spy="scroll" data-target="#main-navbar">
 
@@ -381,11 +381,6 @@
                         </div>
                     </div>
 
-                               <!-- <input id="uploadFile" placeholder="Choose File" disabled="disabled" /> -->
-                                <!--<div class="fileUpload btn btn-primary">
-                                    <span>Upload Resume</span>
-                                    <input id="uploadBtn" type="file" class="upload" />
-                                </div> -->
                                                                <p style ="text-align: center; font-size: large"> At Hopkins Tameron Hostal we believe that our most valuable assets are our team members. We are dedicated to the growth of our individual team members, knowing that job satisfaction is a critical component to overall success.  We also know that positive and supported team members will provide quality service to our clients and enjoy what they do!</p>
  
                                 <p style ="text-align: center; font-size: large">If you are someone who is committed to being a part of a positive and progressive culture, is willing to grow with us, and is looking for a collaborative environment to utilize your individual skills, please contact us! </p>
@@ -457,7 +452,8 @@
                                     </span>
                                     <textarea class="form-control" rows="8" placeholder="Write Message" name="message"></textarea>
                                 </div>
-                                <button id="cfsubmit" type="submit" class="btn btn-default btn-block">Send your Message <span class="ion-paper-airplane"></span></button>
+                                <div class="g-recaptcha" data-sitekey="6LcOumUUAAAAAARAQTBifHFGuwSgdiMlOr_3S4Ta" data-callback="enableContactBtn">  </div> <br>
+                                <button id="cfsubmit" type="submit" class="btn btn-default btn-block" disabled="true">Send your Message <span class="ion-paper-airplane"></span></button>
                             </form>
                         </div>
                     </div>
@@ -471,6 +467,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-6">
+                            <br><br><br><br>
                             <h2>Subscribe to our newsletter</h2>
                         </div>
                         <div class="col-sm-6">
@@ -486,7 +483,9 @@
                                     </div>
                                 </div><!--/input-grpup-->
 
-                                <button type="submit" id="subscribe-button" type="submit" class="btn btn-default hide"><i class="ion-heart"></i> Get it</button>
+                            <div class="g-recaptcha" data-sitekey="6LcOumUUAAAAAARAQTBifHFGuwSgdiMlOr_3S4Ta" data-callback="enableNewsletterBtn"> </div><br>
+
+                            <button id="subscribe-button" type="submit" class="btn btn-default btn-block" disabled="true">Subscribe <span class="ion-paper-airplane"></span></button><br>
                             </form>
 
                             <!-- SUCCESS OR ERROR MESSAGES -->
@@ -520,5 +519,14 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/js/bootstrap-select.min.js"></script>
         <script src="assets/js/owl.carousel.min.js"></script>
         <script src="assets/js/script.js"></script>
+        <script>
+             function enableContactBtn(){
+                document.getElementById("cfsubmit").disabled = false;
+               }
+
+             function enableNewsletterBtn(){
+                document.getElementById("subscribe-button").disabled = false;
+               }
+        </script>
     </body>
 </html>

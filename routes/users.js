@@ -6,6 +6,8 @@ var fileupload = require('express-fileupload');
 
 var User = require("../models/user");
 
+var https = require('https');
+
 'use strict';
 const nodemailer = require('nodemailer');
 
@@ -143,6 +145,13 @@ router.get('/logout', function(req, res){
 
 router.post('/formemail', function (req, res) {
 
+  if(req.body['g-recaptcha-response'] === undefined || req.body['g-recaptcha-response'] === '' || req.body['g-recaptcha-response'] === null) {
+    console.log('Captcha response null');
+    return res.json({"responseCode" : 1,"responseDesc" : "Please select captcha"});
+  }
+	        verifyRecaptcha(req.body["g-recaptcha-response"], function(success) {
+                if (success) {
+                        console.log('Captcha success for newsletter subscription!');
 	var name = req.body.name;
 	var email = req.body.email;
 	var message = req.body.message;
@@ -162,7 +171,7 @@ nodemailer.createTestAccount((err, account) => {
     // setup email data with unicode symbols
     let mailOptions = {
         from: 'HTH Arizona Website Mailer <azhthsvc@gmail.com>', // sender address
-        to: 'Connie.Garay@azhth.com', // list of receivers
+        to: 'azhthsvc@gmail.com',//'Connie.Garay@azhth.com', // list of receivers
         subject: 'New Contact Form Message from HTH Website - ' + name, // Subject line
         text: 'From: ' + name + 'E-mail:' + email + 'Message:' + message, // plain text body
         html: '<b>From: </b>' + name + '<br /><b>E-mail: </b>' + email + '<br /><br /><b>Message: </b>'  + message// html body
@@ -181,6 +190,13 @@ nodemailer.createTestAccount((err, account) => {
  	req.flash('success_msg', 'Contact form message sent! We will contact you back as soon as we can.');
  	res.redirect('contact');
 });
+
+                } else {
+                        console.log('Captcha failed for form submission!');
+                        req.flash('error_msg', 'Captcha failed for form submission. Please call us using the phone number in the contact section');
+                        // and for the love of everyone, restore their inputs
+                }
+                 });
 });
 
 router.post('/resumeemail', function (req, res) {
@@ -212,7 +228,7 @@ nodemailer.createTestAccount((err, account) => {
     // setup email data with unicode symbols
     let mailOptions = {
         from: 'HTH Arizona Website Mailer <azhthsvc@gmail.com>', // sender address
-        to: 'Connie.Garay@azhth.com', // list of receivers
+        to: 'azhthsvc@gmail.com',//'Connie.Garay@azhth.com', // list of receivers
         subject: 'New Resume Submitted from the HTH Website - ', // Subject line
         text: message, // plain text body
         html: message// html body
@@ -243,43 +259,82 @@ nodemailer.createTestAccount((err, account) => {
 
 router.post('/subscribe', function (req, res) {
 
-	var message = "A user from the HTH website wants to subscribe to the Newsletter. Please add the provided e-mail address to the Newsletter group.";
-	var email = req.body.email;
+  if(req.body['g-recaptcha-response'] === undefined || req.body['g-recaptcha-response'] === '' || req.body['g-recaptcha-response'] === null) {
+    console.log('Captcha response null');
+    return res.json({"responseCode" : 1,"responseDesc" : "Please select captcha"});
+  }
+  if (req.body.email ==== null)
+  {
+  	req.flash('error_msg', 'E-mail address not provided. Please provide a valid e-mail address.');
+  }
+	        verifyRecaptcha(req.body["g-recaptcha-response"], function(success) {
+                if (success) {
+                        console.log('Captcha success for newsletter subscription!');
+					    var message = "A user from the HTH website wants to subscribe to the Newsletter. Please add the provided e-mail address to the Newsletter group.";
+						var email = req.body.email;
 
-nodemailer.createTestAccount((err, account) => {
+						nodemailer.createTestAccount((err, account) => {
 
-    // create reusable transporter object using the default SMTP transport
-    let transporter = nodemailer.createTransport({
-    	service: "gmail",
-        host: "smtp.gmail.com",
-        auth: {
-            user: "azhthsvc", // provide in running env
-            pass: "htharizon@"  // provide in running env
-        }
-    });
+					    // create reusable transporter object using the default SMTP transport
+					    let transporter = nodemailer.createTransport({
+					    	service: "gmail",
+					        host: "smtp.gmail.com",
+					        auth: {
+					            user: "azhthsvc", // provide in running env
+					            pass: "htharizon@"  // provide in running env
+					        }
+					    });
 
-    // setup email data with unicode symbols
-    let mailOptions = {
-        from: 'HTH Arizona Website Mailer <azhthsvc@gmail.com>', // sender address
-        to: 'Connie.Garay@azhth.com', // list of receivers
-        subject: 'Newsletter Subscription Request from HTH Website - ' + email, // Subject line
-        text: 'E-mail:' + email + 'Message:' + message, // plain text body
-        html: 'E-mail: </b>' + email + '<br /><br /><b>Message: </b>'  + message// html body
-    };
+					    // setup email data with unicode symbols
+					    let mailOptions = {
+					        from: 'HTH Arizona Website Mailer <azhthsvc@gmail.com>', // sender address
+					        to: 'azhthsvc@gmail.com',//'Connie.Garay@azhth.com', // list of receivers
+					        subject: 'Newsletter Subscription Request from HTH Website - ' + email, // Subject line
+					        text: 'E-mail:' + email + 'Message:' + message, // plain text body
+					        html: 'E-mail: </b>' + email + '<br /><br /><b>Message: </b>'  + message// html body
+					    };
 
- transporter.sendMail(mailOptions, (error, info) => {
-    if (error) {
-        }
-        console.log('Message sent: %s', info.messageId);
-        // Preview only available when sending through an Ethereal account
-        console.log('Preview URL: %s', nodemailer.getTestMessageUrl(info));
-         	req.flash('error_msg', 'Contact form message failed to send. Please call us using the phone number in the contact section');
+					 transporter.sendMail(mailOptions, (error, info) => {
+					    if (error) {
+					        }
+					        console.log('Message sent: %s', info.messageId);
+					        // Preview only available when sending through an Ethereal account
+					        console.log('Preview URL: %s', nodemailer.getTestMessageUrl(info));
+					         	req.flash('error_msg', 'Contact form message failed to send. Please call us using the phone number in the contact section');
 
-	res.redirect('contact');
-    });
- 	req.flash('success_msg', 'Contact form message sent! We will contact you back as soon as we can.');
- 	res.redirect('contact');
+						res.redirect('contact');
+					    });
+					 	req.flash('success_msg', 'Contact form message sent! We will contact you back as soon as we can.');
+					 	res.redirect('contact');
+					});
+                } else {
+                        console.log('Captcha failed for newsletter subscription!');
+                        req.flash('error_msg', 'Captcha failed for newsletter subscription. Please call us using the phone number in the contact section');
+                        // and for the love of everyone, restore their inputs
+                }
+        });
+
+	
 });
-});
+
+var SECRET = "6LcOumUUAAAAAGViztNEL697GvSyjbMk2dom1W4f";
+
+function verifyRecaptcha(key, callback) {
+	console.log('Before HTTPs get');
+        https.get("https://www.google.com/recaptcha/api/siteverify?secret=" + SECRET + "&response=" + key, function(res) {
+                var data = "";
+                res.on('data', function (chunk) {
+                        data += chunk.toString();
+                });
+                res.on('end', function() {
+                        try {
+                                var parsedData = JSON.parse(data);
+                                callback(parsedData.success);
+                        } catch (e) {
+                                callback(false);
+                        }
+                });
+        });
+}
 
 module.exports = router;
