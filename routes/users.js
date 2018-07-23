@@ -263,7 +263,7 @@ router.post('/subscribe', function (req, res) {
     console.log('Captcha response null');
     return res.json({"responseCode" : 1,"responseDesc" : "Please select captcha"});
   }
-  if (req.body.email ==== null)
+  if (req.body.email === null)
   {
   	req.flash('error_msg', 'E-mail address not provided. Please provide a valid e-mail address.');
   }
