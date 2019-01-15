@@ -171,7 +171,7 @@ nodemailer.createTestAccount((err, account) => {
     // setup email data with unicode symbols
     let mailOptions = {
         from: 'HTH Arizona Website Mailer <azhthsvc@gmail.com>', // sender address
-        to: 'Connie.Garay@azhth.com', // list of receivers
+        to: 'kelley.mason@azhth.com', // list of receivers
         subject: 'New Contact Form Message from HTH Website - ' + name, // Subject line
         text: 'From: ' + name + 'E-mail:' + email + 'Message:' + message, // plain text body
         html: '<b>From: </b>' + name + '<br /><b>E-mail: </b>' + email + '<br /><br /><b>Message: </b>'  + message// html body
@@ -228,7 +228,7 @@ nodemailer.createTestAccount((err, account) => {
     // setup email data with unicode symbols
     let mailOptions = {
         from: 'HTH Arizona Website Mailer <azhthsvc@gmail.com>', // sender address
-        to: 'Connie.Garay@azhth.com', // list of receivers
+        to: 'kelley.mason@azhth.com', // list of receivers
         subject: 'New Resume Submitted from the HTH Website - ', // Subject line
         text: message, // plain text body
         html: message// html body
@@ -288,7 +288,7 @@ router.post('/subscribe', function (req, res) {
 					    // setup email data with unicode symbols
 					    let mailOptions = {
 					        from: 'HTH Arizona Website Mailer <azhthsvc@gmail.com>', // sender address
-					        to: 'Connie.Garay@azhth.com', // list of receivers
+					        to: 'kelley.mason@azhth.com', // list of receivers
 					        subject: 'Newsletter Subscription Request from HTH Website - ' + email, // Subject line
 					        text: 'E-mail:' + email + 'Message:' + message, // plain text body
 					        html: 'E-mail: </b>' + email + '<br /><br /><b>Message: </b>'  + message// html body
