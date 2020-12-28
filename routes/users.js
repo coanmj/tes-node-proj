@@ -54,6 +54,11 @@ router.get('/joetameron', function(req, res) {
 	res.render('joetameron');
 });
 
+//Resources
+router.get('/resources', function(req, res) {
+  res.render('resources');
+});
+
 // Register User
 router.post('/register', function(req, res) {
 	var name = req.body.name;
