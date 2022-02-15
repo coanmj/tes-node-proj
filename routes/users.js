@@ -46,10 +46,6 @@ router.get('/davehopkins', function(req, res) {
 	res.render('davehopkins');
 });
 
-router.get('/georgehostal', function(req, res) {
-	res.render('georgehostal');
-});
-
 router.get('/joetameron', function(req, res) {
 	res.render('joetameron');
 });
